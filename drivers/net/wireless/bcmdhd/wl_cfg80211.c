@@ -5561,14 +5561,14 @@ fw_assoc_timeout_fn(struct work_struct *work)
 }
 
 void
-wl_fw_assoc_timeout_init()
+wl_fw_assoc_timeout_init(void)
 {
 	INIT_DELAYED_WORK(&fw_assoc_timeout.delay_work, fw_assoc_timeout_fn);
 	fw_assoc_timeout.fw_assoc_watchdog_started = FALSE;
 }
 
 void
-wl_fw_assoc_timeout_cancel()
+wl_fw_assoc_timeout_cancel(void)
 {
 	if (delayed_work_pending(&fw_assoc_timeout.delay_work)) {
 		WL_ERR(("cancelling fw_assoc_watchdog work\n"));
